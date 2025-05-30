@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos Universitarios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fff);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #00695c;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #004d40;
+    }
+    nav a {
+      color: white;
+      padding: 1em;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    nav a:hover {
+      background-color: #00332e;
+    }
+    section {
+      display: none;
+      padding: 2em;
+    }
+    section.active {
+      display: block;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1em;
+      border-radius: 8px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Eventos Universitarios</h1>
+  </header>
+
+  <nav>
+    <a href="#feria" onclick="showSection('feria')">Feria de Carreras</a>
+    <a href="#sesion" onclick="showSection('sesion')">Sesión Informativa Virtual</a>
+    <a href="#tour" onclick="showSection('tour')">Tour por el Campus</a>
+  </nav>
+
+  <section id="feria">
+    <h2>Feria de Carreras</h2>
+    <p>Explora nuestras principales carreras y descubre cuál es la ideal para ti. En la feria podrás hablar con docentes, resolver tus dudas y conocer el perfil de cada programa académico.</p>
+    <ul>
+      <li>Administración de Empresas</li>
+      <li>Ingeniería en Sistemas</li>
+      <li>Psicología</li>
+      <li>Derecho</li>
+      <li>Arquitectura</li>
+    </ul>
+    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=800&q=80" alt="Feria de Carreras">
+    <p>📅 Fecha: 10 de julio<br>
+       📍 Lugar: Auditorio Central<br>
+       🕒 Hora: 9:00 AM</p>
+  </section>
+
+  <section id="sesion">
+    <h2>Sesión Informativa Virtual</h2>
+    <p>Conéctate desde cualquier lugar y obtén toda la información que necesitas para iniciar tu carrera universitaria con nosotros.</p>
+    <img src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=800&q=80" alt="Sesión virtual desde computadora">
+    <p>🔗 El enlace de acceso será publicado aquí el 12 de julio.</p>
+  </section>
+
+  <section id="tour">
+    <h2>Tour por el Campus</h2>
+    <p>Conoce nuestras instalaciones, laboratorios, áreas recreativas y mucho más en un recorrido guiado por estudiantes actuales.</p>
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Tour por el campus">
+    <p>📅 Fecha: 15 de julio<br>
+       📍 Punto de encuentro: Entrada principal<br>
+       🕒 Hora de inicio: 10:00 AM</p>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+
+    window.onload = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        showSection(hash);
+      } else {
+        showSection('feria');
+      }
+    };
+  </script>
+</body>
+</html>
